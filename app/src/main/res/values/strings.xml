@@ -1,0 +1,221 @@
+<resources>
+    <string name="app_name">Nearhud</string>
+    <string name="welcome_to_app">Welcome To App</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="your_email">Your Email</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="login_with_facebook">Login with facebook</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="oops_your_email_is_not_correct_or_empty">Oops! Your Email Is Not Correct or Empty</string>
+    <string name="oops_your_password_is_not_correct">Oops! Your Password Is not Valid</string>
+    <string name="oops_your_password_is_not_valid">Password should contain min of 8 characters and at least 1 lowercase, 1 uppercase and 1 numeric value</string>
+    <string name="oops_your_password_is_empty">Oops! Your Password is not Empty</string>
+    <string name="cpass_and_pass_not_match">Oops! Your Password Mismatch</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_a_account">Don’t have a account?</string>
+    <string name="register">Register</string>
+    <string name="invalid_email">Oops! Your Email is Invalid</string>
+    <string name="email_empty">Oops! Your Email is Empty</string>
+    <string name="fname_empty">Oops! Your First Name is Empty</string>
+    <string name="lname_empty">Oops! Your Last Name is Empty</string>
+    <string name="lname_neighbour">Oops! Your Neighbour Name is Empty</string>
+    <string name="error_on_mobile_number">Please Enter Mobile Number</string>
+    <string name="error_on_mobile_number2">Invalid Mobile Number!!</string>
+    <string name="address_empty">Oops! Your Address is Empty</string>
+    <string name="empty_zip">Oops! Your Zip is Empty</string>
+    <string name="empty_zip2">Incorrect Zip Code</string>
+    <string name="or">OR</string>
+    <string name="lets_get_started">Let’s Get Started</string>
+    <string name="create_an_new_account">Create account</string>
+    <string name="have_a_account_sign_in">have a account? Sign In</string>
+    <string name="full_name">Name</string>
+    <string name="password_again">Confirm Password</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="update">Update</string>
+    <string name="empty_name">Oops! Your Name is Empty</string>
+    <string name="empty_business_name">Oops! Business Name is Empty</string>
+    <string name="invalid_name">Oops! Your Name is Invalid</string>
+    <string name="empty_mobile">Oops! Your Mobile is Empty</string>
+    <string name="invali_mobile">Oops! Your Mobile Number is Invalid</string>
+
+    <string name="places_api_key">AIzaSyBQKNyKD-R3zjP9EwZ9h8g89UCIZgdsJBc</string>
+
+    <string name="contact_us">Contact Us</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="change_password">Change Password</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="phone_number">Phone</string>
+    <string name="date_birth">DOB (DD-MM-YYYY)</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="new_password_again">New Password Again</string>
+    <string name="edit">Edit</string>
+    <string name="country">Country</string>
+    <string name="streets">Streets</string>
+    <string name="town">Town</string>
+    <string name="post_code">Post Code</string>
+    <string name="whatsapp_number">WhatsApp Number</string>
+    <string name="imo">IMO</string>
+    <string name="save1">Save</string>
+    <string name="add_address">Add Address</string>
+    <string name="forget_password"><u>Forget Password?</u></string>
+    <string name="wronge_number"><u>Wrong number?</u></string>
+    <string name="cancel_appointment"><u>Cancel appt</u></string>
+    <string name="details">Details</string>
+    <string name="profile">Profile</string>
+    <string name="change_pass">Change Password</string>
+    <string name="ship_to_address">Ship To</string>
+    <string name="my_order">Order</string>
+    <string name="account">Account</string>
+    <string name="receive_bookings_straight_to_your_phone_24_7_customers_can_book_pay_and_cancel_appointments_weeks_in_advance">Receive bookings straight to your phone 24/7. Customers can book pay and cancel appointments weeks in advance.</string>
+    <string name="easily_manage_and_track_your_neighbour">Easily Track Your Neighbours</string>
+    <string name="view_business_statistics">View business statistics</string>
+    <string name="see_statistics_to_help_you_boost_your_business_such_as_best_selling_service_fastest_slowest_days_and_much_more">See Statistics to help you boost your business. Such as best selling service, fastest, slowest days and much more.</string>
+    <string name="kep_your_customers_alerted">Kep your customers alerted</string>
+    <string name="send_alerts_to_your_customers_when_your_running_late_space_is_free_and_send_discounts_and_offers_to_boost_business_for_new_customers">send alerts to your customers when your running late, space is free and send discounts and offers to boost business for new customers.</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login">Login</string>
+    <string name="sun">Sun</string>
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="save"><u>Save</u></string>
+    <string name="settings">Settings</string>
+    <string name="personal_info_will_not_be_displayed_on_your_profile">Personal info will not be displayed on your profile.</string>
+
+    <string name="type">Type</string>
+    <string name="first_line">First line</string>
+    <string name="second_line">second line</string>
+    <string name="city">City</string>
+    <string name="set_opening_hours"><u>Set opening hours</u></string>
+    <string name="set_working_status"><u>Set Working Status</u></string>
+    <string name="closed">Closed?</string>
+    <string name="copy_profile_url"><u>Copy profile URL</u></string>
+    <string name="view_profile"><u>View profile</u></string>
+    <string name="notification_settings"><u>Notification settings</u></string>
+    <string name="edit_services"><u>Edit Services</u></string>
+    <string name="bio">Bio</string>
+    <string name="personal_info">Personal info</string>
+    <string name="empty"></string>
+
+
+    <string name="empty_title">Oops! Product Title is Empty</string>
+    <string name="empty_unit">Oops! Product Unit is Invalid</string>
+    <string name="empty_detail">Oops! Product Details is Empty</string>
+    <string name="empty_stock">Oops! Stock is Empty</string>
+    <string name="empty_price">Oops! Product Price is Empty</string>
+    <string name="empty_discount">Oops! Product Discount is Empty</string>
+    <string name="empty_product_image">Oops! Product Image is Empty</string>
+
+    <!--    Strings used for Authentication-->
+    <string name="welcome_title">Welcome to Nearhud</string>
+    <string name="terms_condition" translatable="false">By tapping \"Verify\" you are indicating that you accept our <a href="https://www.nearhud.com/nearhud-privacypolicy/">Privacy policy</a> and <a href="https://www.nearhud.com/nearhud-tc/">Terms of service</a></string>
+    <string name="enter_number">Enter your number here...</string>
+    <string name="enter_number_hint">10 digit number</string>
+    <string name="enter_otp">Verify your phone number</string>
+    <string name="enter_number_info">Let\'s Get Started</string>
+    <string name="otp_verify_tag">Verify your number...</string>
+    <string name="sms_charge_warning">Carrier SMS charges may apply</string>
+    <string name="number_verify_message">Is this OK, or would you like to edit this number?</string>
+    <string name="enter_otp_info">Waiting to automatically detect an OTP send to <b>%1$S</b> Edit number</string>
+    <string name="wrong_number">Edit number</string>
+    <string name="confirm_number">Confirm %1$S</string>
+    <string name="edit_number_title">Edit %1$S</string>
+    <string name="edit_number_message">You want to change this number</string>
+    <string name="auth_verifying">Verifying…</string>
+    <string name="number_verifying">Verify</string>
+    <string name="neighbout_text">Yee ! this is my neighbourhud</string>
+    <string name="not_recive_otp">Didn\'t receive otp?</string>
+    <string name="registration_tag">Help us to know you better...</string>
+    <string name="otp_verify_text">Waiting to automatically detect an OTP send to</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="occupation">Occupation</string>
+    <string name="neighbourhood_name">Neighbour name</string>
+    <string name="email">Email</string>
+    <string name="address">Enter your address</string>
+    <string name="zip">Enter zip code</string>
+    <string name="submit">Submit</string>
+    <string name="find_neighbour">Find my Neighbourhud</string>
+    <string name="registration_title">Registration</string>
+
+    <string name="enter_otpp">Enter otp</string>
+    <string name="retry">Retry</string>
+    <string name="resend">Resend</string>
+    <string name="wating">Waiting</string>
+
+    <string name="toast_image_intent_null">Image picker option is missing!</string>
+    <string name="msg_error_unable_select_profile_pic">Unable to set profile image. Please try again!</string>
+    <string name="lbl_set_profile_photo">Set profile image</string>
+    <string name="lbl_take_camera_picture">Take a picture</string>
+    <string name="lbl_choose_from_gallery">Choose from gallery</string>
+
+    <string name="dialog_permission_title">Grant Permissions</string>
+    <string name="dialog_permission_message">This app needs permission to use this feature. You can grant them in app settings.</string>
+    <string name="go_to_settings">GOTO SETTINGS</string>
+    <string name="try_again">Please Try Again !!</string>
+
+
+    <string name="post">Post</string>
+    <string name="write_something_here">Write something here...</string>
+    <string name="enter_a_post_description">Please Enter a post description</string>
+
+    <string-array name="states">
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Mizoram</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>West Bengal</item>
+
+    </string-array>
+
+    <string-array name="city">
+        <item>Jaipur</item>
+        <item>Ajmer</item>
+        <item>Kota</item>
+        <item>Bikaner</item>
+    </string-array>
+
+    <string-array name="usertype">
+        <item>Vendor</item>
+        <item>Customer</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_white_top_round_20"
+    android:paddingBottom="@dimen/_16sdp">
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_marginVertical="@dimen/_16sdp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_solid_btn_grey_round_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_weight="2"
+        android:weightSum="2"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/clHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:background="@drawable/ripple"
+            android:paddingVertical="@dimen/_8sdp">
+
+            <ImageView
+                android:id="@+id/ivCheck"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_home"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sdp"
+                android:text="Home"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:textColor="@color/black"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/clNeighbour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:paddingVertical="@dimen/_8sdp"
+            android:orientation="vertical"
+            android:background="@drawable/ripple">
+
+            <ImageView
+                android:id="@+id/ivAppointment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_neigh"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvAppointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Neighbourhud"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_13sdp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

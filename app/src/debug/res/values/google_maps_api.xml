@@ -1,0 +1,29 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E8:CF:A0:22:46:33:6E:E9:9D:06:74:6A:7B:76:A2:87:AE:22:4D:8E%3Bcom.neighbour.nearhud.ui.signup.fragments
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.neighbour.nearhud.ui.signup.fragments
+
+    SHA-1 certificate fingerprint:
+    E8:CF:A0:22:46:33:6E:E9:9D:06:74:6A:7B:76:A2:87:AE:22:4D:8E
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+
+    <!--    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBrbg8HxGFfgxXSqgkJHRYj2PXZ2643VG4</string>-->
+    <!--    -->
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBlV_ixBdMP8UGrgMwH6kcIyexlBkjYNI8</string>
+
+</resources>

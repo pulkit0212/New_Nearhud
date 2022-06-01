@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#32A8A4</color>
+    <color name="colorPrimaryDark">#32A8A4</color>
+    <color name="colorPrimary_2">#FFFFFFFF</color>
+    <color name="custome">#A601243F</color>
+    <color name="hint_color">#9098B1</color>
+    <color name="colorstrock">#EBF0FF</color>
+    <color name="tab">#BBD4E9</color>
+    <color name="colorstrock2">#AE1C29</color>
+    <color name="colorSpecialDark">#6FD174</color>
+    <color name="colorSpeciallight">#FB7181</color>
+    <color name="colorAccent">#32A8A4</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_light">#F6F6F6</color>
+    <color name="trans">#00FFFFFF</color>
+    <color name="front_page_textViews">#D8D8D8</color>
+    <color name="shimmer">#dddddd</color>
+    <color name="button_gray">#9a9999</color>
+    <color name="pale_blue">#b9e1e0</color>
+    <color name="offWhite">#d3d3d3</color>
+
+    <color name="transparent_black">#DC000000</color>
+    <color name="view_divider">#F0F0F0</color>
+</resources>
