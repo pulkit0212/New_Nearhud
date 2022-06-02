@@ -12,13 +12,13 @@ apply plugin: 'com.google.gms.google-services'
  */
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "common.neighbour.nearhud"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 3
         versionName "1.2"
         multiDexEnabled true
@@ -129,11 +129,12 @@ dependencies {
 
     implementation 'com.androidadvance:topsnackbar:1.1.1'
 
-    //Room
-//    def roomVersion = '2.3.0-alpha03'
-//    implementation "androidx.room:room-runtime:$roomVersion"
-//    implementation "androidx.room:room-ktx:$roomVersion"
-//    kapt "androidx.room:room-compiler:$roomVersion"
+    // Room
+    implementation "androidx.room:room-runtime:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.4.2"
 
     implementation platform('com.google.firebase:firebase-bom:26.5.0')
     implementation 'com.google.firebase:firebase-analytics'
@@ -171,7 +172,7 @@ dependencies {
     implementation 'cn.jzvd:jiaozivideoplayer:7.0.5'
 
     //dexter permissions
-    implementation "com.karumi:dexter:5.0.0"
+    implementation "com.karumi:dexter:6.2.2"
 
     //implementation 'com.sandrios.android:sandriosCamera:1.2.6'
     //pinview

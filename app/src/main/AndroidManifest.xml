@@ -6,11 +6,12 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.hardware.camera" />
@@ -28,6 +29,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.contact_share.ContactActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.post.EditPostCameraActivity"
             android:exported="false" />
@@ -52,7 +62,6 @@
         <activity android:name=".ui.camera.CameraActivity" />
         <activity android:name=".ui.comment.ReplyActivity" />
         <activity android:name=".ui.map.SearchLocationActivity" />
-        <activity android:name=".ui.home.fragment.create_post.MapPostActivity" />
         <activity android:name=".ui.registration.RegistrationActivity2" />
         <activity android:name=".ui.registration.RegistrationActivity1" />
         <activity android:name=".ui.map.MapsActivity" />
@@ -71,10 +80,7 @@
 
         <activity android:name=".ui.home.fragment.create_post.CreatePostActivity" />
         <activity android:name=".ui.comment.CommentActivity" />
-        <activity
-            android:name=".ui.map.CreateAccountActivity"
-            android:screenOrientation="portrait"
-            android:singleUser="true" />
+
         <activity
             android:name=".ui.welcome.WelcomeActivity"
             android:screenOrientation="portrait"
@@ -87,12 +93,13 @@
         <activity
             android:name=".ui.splash.MainActivity"
             android:screenOrientation="portrait"
-            android:singleUser="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:singleUser="true"
+            android:exported="true">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity> <!-- Providers -->
         <provider
             android:name="androidx.core.content.FileProvider"
