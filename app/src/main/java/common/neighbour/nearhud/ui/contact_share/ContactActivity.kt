@@ -43,6 +43,13 @@ class ContactActivity : NewBaseActivity<ContactViewModel, ActivityContactBinding
             }).check()
 
         initObserver()
+        initViews()
+    }
+
+    private fun initViews() {
+        binding.btnFilter.setOnClickListener {
+
+        }
     }
 
     private fun initObserver() {
@@ -54,6 +61,10 @@ class ContactActivity : NewBaseActivity<ContactViewModel, ActivityContactBinding
                 rvContact.layoutManager = layoutManager
                 rvContact.adapter = contactAdapter
                 contactAdapter.setData(ArrayList(it.toMutableList()))
+
+                for (item in it){
+                    viewModel.list.add(item.phoneNumber)
+                }
             }
 
         }

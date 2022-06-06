@@ -17,5 +17,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btnFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filter"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/rvContact" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

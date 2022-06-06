@@ -17,6 +17,8 @@ class ContactViewModel @Inject constructor(
     val repositoryImpl: ContactRepository
 ) : ViewModel() {
 
+    var list = ArrayList<String>()
+
     fun getContacts() = viewModelScope.launch(Dispatchers.IO) { repositoryImpl.loadContact() }
 
     fun getContactsList(): LiveData<List<ContactList>> = repositoryImpl.getContactList()
