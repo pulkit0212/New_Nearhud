@@ -9,7 +9,8 @@ import retrofit2.Response
 class AppNetworkRepository(private val context: Context) : BaseDataSource() {
 
 
-    var apiService = ApiInterface.createOnRecord(SharedPre.getInstance(context)!!.jwtToken)
+    var apiService = ApiInterface.createNearhud(SharedPre.getInstance(context)!!.jwtToken)
+   // var apiService = ApiInterface.createNearhud("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRpZCI6InB1bGtpdGFwcGRldmVsb3BlciIsImlhdCI6MTYzMzcwOTQ4OH0.7UabOFs7ozsi2crk0cn4PIUZ4ypC_cNx5BVNwl0xtQ8")
     //var appDb = AppDB.getDatabase(context)
 
 //    var apiServicePlaces =
@@ -211,6 +212,31 @@ class AppNetworkRepository(private val context: Context) : BaseDataSource() {
             apiService.getNeighbourPost(map)
         }
     }
+
+    fun sortContactList(phoneNb: ArrayList<String>, userId: String) = performOperation {
+        getResult {
+            val map = hashMapOf(
+                AppConstance.PHONE_NB to phoneNb,
+                AppConstance.USER_ID to userId
+            )
+            apiService.sortContactList(map)
+        }
+    }
+
+    fun referNumber(referedById: String, referedByGroupId: String , phoneNo: String
+                    ,invitationDate: String, referedByGroupName: String) = performOperation {
+        getResult {
+            val map = hashMapOf(
+                AppConstance.REFER_BY_ID to referedById,
+                AppConstance.REFER_BY_GROUP_ID to referedByGroupId,
+                AppConstance.PHONE_NB to phoneNo,
+                AppConstance.INVITATION_DATE to invitationDate,
+                AppConstance.REFER_BY_GROUP_NAME to referedByGroupName
+            )
+            apiService.referNumber(map)
+        }
+    }
+
     fun getPostComment(postId: String) = performOperation {
         getResult {
             apiService.getPostComment(

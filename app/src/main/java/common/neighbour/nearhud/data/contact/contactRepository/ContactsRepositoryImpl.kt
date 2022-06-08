@@ -97,7 +97,8 @@ class ContactsRepositoryImpl @Inject constructor(
                             var phoneNumber = phoneCursor.getString(
                                 phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
                             )
-                            phoneNumber=getMeMyNumber(phoneNumber)
+                            //phoneNumber=getMeMyNumber(phoneNumber)
+                            phoneNumber=phoneNumber
                             val photo = phoneCursor.getString(
                                 phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI)
                             )
@@ -109,7 +110,7 @@ class ContactsRepositoryImpl @Inject constructor(
                                 saveContact(number, name, email, photo?:"", mobileNoSet)
                             } else if (phoneNumber.length == 10) {
                                 number = phoneNumber.replace("\\s+".toRegex(), "")
-                                saveContact("91" + number, name, email, photo?:"", mobileNoSet)
+                                saveContact("+91" + number, name, email, photo?:"", mobileNoSet)
                             } else {
                                 Log.e("RichCall","Nothing")
                             }
@@ -117,9 +118,7 @@ class ContactsRepositoryImpl @Inject constructor(
 
                             phoneCursor.close()
                         }
-
                     }
-
                 }
             } finally {
                 cursor.close()
@@ -127,7 +126,7 @@ class ContactsRepositoryImpl @Inject constructor(
         }
     }
 
-    fun getMeMyNumber(number: String, countryCode: String="91"): String? {
+    fun getMeMyNumber(number: String, countryCode: String="+91"): String? {
         return number.replace("[^0-9\\+]".toRegex(), "") //remove all the non numbers (brackets dashes spaces etc.) except the + signs
             .replace("(^[1-9].+)".toRegex(), "$countryCode$1") //if the number is starting with no zero and +, its a local number. prepend cc
             .replace("(.)(\\++)(.)".toRegex(), "$1$3") //if there are left out +'s in the middle by mistake, remove them

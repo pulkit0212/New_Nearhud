@@ -24,6 +24,7 @@ import common.neighbour.nearhud.api.BaseDataSource
 import common.neighbour.nearhud.application.MyApplication
 import common.neighbour.nearhud.changed_frag.MypostFragment
 import common.neighbour.nearhud.retrofit.model.post.Data
+import common.neighbour.nearhud.ui.contact_share.ContactActivity
 import common.neighbour.nearhud.ui.home.fragment.setting.profile.ProfileActivity
 import common.neighbour.nearhud.ui.setting.HelpActivity
 import common.neighbour.nearhud.ui.setting.MyNeighbourActivity
@@ -123,7 +124,7 @@ class SettingFragment : NewBaseFragment<MainViewModel, SettingFragmentBinding>(M
             requireContext().startActivity(intent)
         }
         binding.frameLayout3.setOnClickListener {
-            val intent = Intent(requireContext(), HelpActivity::class.java)
+            val intent = Intent(requireContext(), ContactActivity::class.java)
             requireContext().startActivity(intent)
         }
 

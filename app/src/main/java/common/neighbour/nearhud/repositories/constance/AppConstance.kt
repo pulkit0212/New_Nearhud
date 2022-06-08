@@ -53,6 +53,8 @@ class AppConstance {
         const val UPDATE_USER="modifyUserData"
         const val STATE_POST="getpostofstate"
         const val GROUP_POST="getpostofgroup"
+        const val SORT_CONTACT_LIST="sortContactList"
+        const val REFER_NUMBER="referNumber"
         const val UP_VOTE="upvote"
         const val DOWN_VOTE="downvote"
         const val ADD_COMMENT="addcomment"
@@ -110,6 +112,12 @@ class AppConstance {
         const val LATITUDE="latitude"
         const val LONGITUDE="longitude"
         const val PAGE="page"
+        const val PHONE_NB="phoneNo"
+
+        const val REFER_BY_ID="referedById"
+        const val REFER_BY_GROUP_ID="referedByGroupId"
+        const val INVITATION_DATE="invitationDate"
+        const val REFER_BY_GROUP_NAME="referedByGroupName"
 
         const val SCREEN_HOME = "home"
 
@@ -123,7 +131,7 @@ class AppConstance {
         const val LAT_LNG="latLong"
         const val ADDRESS="address"
         const val ZIP="zip"
-        const val PINCODE="pincode"
+        const val PINCODE="pinCode"
 
         //
         val API_POST_HOME = "getPost"

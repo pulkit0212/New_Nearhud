@@ -3,6 +3,8 @@ package common.neighbour.nearhud.api
 import common.neighbour.nearhud.repositories.constance.AppConstance
 import common.neighbour.nearhud.retrofit.model.comment.PostCommentReplyResponse
 import common.neighbour.nearhud.retrofit.model.comment.PostCommentResponse
+import common.neighbour.nearhud.retrofit.model.contact_share.ReferNumberListResponse
+import common.neighbour.nearhud.retrofit.model.contact_share.ReferNumberResponse
 import common.neighbour.nearhud.retrofit.model.group.GroupInfoResponse
 import common.neighbour.nearhud.retrofit.model.group.LatLngResponse
 import common.neighbour.nearhud.retrofit.model.login.OtpResponse
@@ -24,8 +26,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 import retrofit2.http.*
+import java.io.Serializable
 import java.util.*
 import java.util.concurrent.TimeUnit
+import kotlin.collections.HashMap
 
 interface ApiInterface {
 
@@ -87,6 +91,16 @@ interface ApiInterface {
     suspend fun getNeighbourPost(
         @Body params:HashMap<String,String>):
             Response<PostResponse>
+
+    @POST(AppConstance.SORT_CONTACT_LIST)
+    suspend fun sortContactList(
+        @Body params: HashMap<String, Serializable>
+    ): Response<ReferNumberListResponse>
+
+    @POST(AppConstance.REFER_NUMBER)
+    suspend fun referNumber(
+        @Body params: HashMap<String, String>
+    ): Response<ReferNumberResponse>
 
     @GET(AppConstance.GET_COMMENT)
     suspend fun getPostComment(@Query(AppConstance.POST_ID) postId: String):
@@ -175,7 +189,7 @@ interface ApiInterface {
 //        private const val BASE_URL_PLACES_API = "https://maps.googleapis.com/maps/api/place/textsearch/"
 //        const val PLACES_API_KEY ="AIzaSyDHF83-FNTa5uM_1xUMTlN-DjCi87NLCOc"
 
-        fun createOnRecord(token: String?): ApiInterface {
+        fun createNearhud(token: String?): ApiInterface {
             val httpClient = OkHttpClient().newBuilder()
                 .connectTimeout(300, TimeUnit.SECONDS)
                 .readTimeout(600, TimeUnit.SECONDS)

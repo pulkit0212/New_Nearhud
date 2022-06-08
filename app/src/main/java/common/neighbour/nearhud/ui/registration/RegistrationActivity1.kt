@@ -150,26 +150,25 @@ class RegistrationActivity1 : BaseActivity(){
     }
 
     private fun callGetGroupAPI(latitude: Double, longitude: Double) {
-        viewModel.getGroupAPI(latitude, longitude).observe(this, {
+        viewModel.getGroupAPI(latitude, longitude).observe(this) {
             when (it.status) {
                 BaseDataSource.Resource.Status.LOADING -> {
                     loader.show()
                 }
                 BaseDataSource.Resource.Status.SUCCESS -> {
                     loader.dismiss()
-                    if(!it.data!!.data.exist){
+                    if (!it.data!!.data.exist) {
                         Common.listGroupLatLng.clear()
                         Common.mapFlag = 1
-                        showCustomAlert("No group found for given address",binding.root)
+                        showCustomAlert("No group found for given address", binding.root)
                         startActivityWithAnimation(
                             Intent(
                                 this,
                                 MapsActivity::class.java
-                            ),Appconstants.SLIDE_IN_LEFT
+                            ), Appconstants.SLIDE_IN_LEFT
                         )
                         //startFragment(MapsFragment.newInstance(viewModel!!),true, MapsFragment.toString())
-                    }
-                    else{
+                    } else {
                         Common.listGroupLatLng.clear()
                         Common.mapFlag = 0
                         Common.savedGrpInfo = it.data!!.data
@@ -179,16 +178,16 @@ class RegistrationActivity1 : BaseActivity(){
                             Intent(
                                 this,
                                 MapsActivity::class.java
-                            ),Appconstants.SLIDE_IN_LEFT
+                            ), Appconstants.SLIDE_IN_LEFT
                         )
                     }
                 }
                 BaseDataSource.Resource.Status.ERROR -> {
                     loader.dismiss()
-                    Toast.makeText(this,it.data!!.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, it.data!!.message, Toast.LENGTH_SHORT).show()
                 }
             }
-        })
+        }
     }
 
     private fun getLatLngFromAddress(address: String, zip: String) {

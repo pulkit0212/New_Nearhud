@@ -98,7 +98,10 @@
         <entry key="..\:/Users/sharm/Documents/GitHub/neahudgit/app/src/main/res/layout/product_fragment.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/sharm/Documents/GitHub/neahudgit/app/src/main/res/layout/toolbar.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_contact.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_registration1.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_setting.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/item_contacts.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/setting_fragment.xml" value="0.24166666666666667" />
       </map>
     </option>
   </component>

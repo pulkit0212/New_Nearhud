@@ -11,7 +11,7 @@ import common.neighbour.nearhud.databinding.ItemContactsBinding
 
 class ContactAdapter (var context: Context) : RecyclerView.Adapter<ContactAdapter.ReplyViewHolder>() {
 
-    private var contactList = ArrayList<ContactList>()
+    private var contactList = ArrayList<common.neighbour.nearhud.retrofit.model.contact_share.ContactList>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReplyViewHolder {
         var binding: ItemContactsBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.item_contacts, parent, false)
@@ -27,7 +27,7 @@ class ContactAdapter (var context: Context) : RecyclerView.Adapter<ContactAdapte
             }
             nameOfContact.text = contactList[position].name
             alphabaticaName.text = contactList[position].name
-            NumberOfContact.text = contactList[position].phoneNumber
+            NumberOfContact.text = contactList[position].number
         }
 
     }
@@ -36,7 +36,7 @@ class ContactAdapter (var context: Context) : RecyclerView.Adapter<ContactAdapte
         return contactList.size
     }
 
-    fun setData(contacts: ArrayList<ContactList>) {
+    fun setData(contacts: ArrayList<common.neighbour.nearhud.retrofit.model.contact_share.ContactList>) {
         this.contactList = contacts
     }
 

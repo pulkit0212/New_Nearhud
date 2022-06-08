@@ -79,21 +79,26 @@ class MainFragment : NewBaseFragment<MainViewModel,
     }
 
         private fun getProfile() {
-        viewModel.GetProfile(getSharedPre().userId!!).observe(requireActivity(),{
+        viewModel.GetProfile(getSharedPre().userId!!).observe(requireActivity()) {
 
             when (it.status) {
                 BaseDataSource.Resource.Status.SUCCESS -> {
-                    binding.toolbar.tvGroupName.text = it.data!!.data[0].name +" , "+it.data!!.data[0].city
-                    if(!it.data.data[0].profilePicture.isNullOrEmpty()){
-                        Glide.with(requireActivity()).load(it.data.data[0].profilePicture).placeholder(R.drawable.user).into(binding.toolbar.ivProfileImage)
+                    binding.toolbar.tvGroupName.text =
+                        it.data!!.data[0].name + " , " + it.data!!.data[0].city
+                    if (!it.data.data[0].profilePicture.isNullOrEmpty()) {
+                        Glide.with(requireActivity()).load(it.data.data[0].profilePicture)
+                            .placeholder(R.drawable.user).into(binding.toolbar.ivProfileImage)
                         getSharedPre().setEmailProfile(it.data.data[0].profilePicture)
-                    }else{
-                        Glide.with(requireActivity()).load(R.drawable.user).placeholder(R.drawable.user).into(binding.toolbar.ivProfileImage)
+                    } else {
+                        Glide.with(requireActivity()).load(R.drawable.user)
+                            .placeholder(R.drawable.user).into(binding.toolbar.ivProfileImage)
                     }
-                    if(!it.data.data[0].profilePicture.isNullOrEmpty()){
-                        Glide.with(requireActivity()).load(it.data.data[0].profilePicture).placeholder(R.drawable.user).into(binding.ivProfileImage)
-                    }else{
-                        Glide.with(requireActivity()).load(R.drawable.user).placeholder(R.drawable.user).into(binding.ivProfileImage)
+                    if (!it.data.data[0].profilePicture.isNullOrEmpty()) {
+                        Glide.with(requireActivity()).load(it.data.data[0].profilePicture)
+                            .placeholder(R.drawable.user).into(binding.ivProfileImage)
+                    } else {
+                        Glide.with(requireActivity()).load(R.drawable.user)
+                            .placeholder(R.drawable.user).into(binding.ivProfileImage)
                     }
 
                     getSharedPre().setUserFName(it.data.data[0].firstName)
@@ -113,8 +118,8 @@ class MainFragment : NewBaseFragment<MainViewModel,
                     getHomeData()
                 }
             }
-        })
-    }
+        }
+        }
 
         private fun getHomeData(){
             when (getSharedPre().userChoice) {
