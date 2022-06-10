@@ -62,7 +62,7 @@
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/frameShare">
 
             <ImageView
                 android:layout_width="20dp"
@@ -89,6 +89,43 @@
             android:layout_marginHorizontal="@dimen/_4sdp"
             android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/frameLogout" />
+
+        <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/frameShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|center"
+                android:layout_marginStart="17dp"
+                android:src="@drawable/ic_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_22sdp"
+                android:text="Share Nearhud"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:visibility="visible"
+            android:id="@+id/viewShare"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginHorizontal="@dimen/_4sdp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/frameShare" />
 
         <LinearLayout
             android:visibility="visible"

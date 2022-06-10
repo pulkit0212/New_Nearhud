@@ -22,6 +22,7 @@ import common.neighbour.nearhud.retrofit.model.register.RegisterResponse
 import common.neighbour.nearhud.retrofit.model.state.PincodeResponse
 import common.neighbour.nearhud.retrofit.model.state.StateResponse
 import common.neighbour.nearhud.retrofit.model.token.CheckUserResponse
+import common.neighbour.nearhud.retrofit.model.token.ReferedData
 import common.neighbour.nearhud.retrofit.model.token.TokenResponse
 
 class LoginViewmodel() : BaseViewModel<LoginNavigator>() {
@@ -32,6 +33,8 @@ class LoginViewmodel() : BaseViewModel<LoginNavigator>() {
     private var otpResponse=MutableLiveData<OtpResponse>()
     lateinit var sharedPre: SharedPre
     private lateinit var methods: MethodsRepo
+
+    var referedData = ArrayList<ReferedData>()
 
 
     @ViewModelInject

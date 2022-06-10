@@ -16,6 +16,7 @@ import common.neighbour.nearhud.databinding.ActivityOtpBinding
 import common.neighbour.nearhud.newUi.ProgressView
 import common.neighbour.nearhud.repositories.constance.AppConstance
 import common.neighbour.nearhud.repositories.methods.FirbaseAuthActions
+import common.neighbour.nearhud.ui.contact_share.ViewReferActivity
 import common.neighbour.nearhud.ui.login.viewmodel.LoginNavigator
 import common.neighbour.nearhud.ui.login.viewmodel.LoginViewmodel
 import common.neighbour.nearhud.ui.registration.RegistrationActivity1
@@ -127,7 +128,7 @@ class OtpActivity : BaseActivity(), FirbaseAuthActions , LoginNavigator {
                 "pulkitappdeveloper",
                 "shizasoftwaredeveloper"
             )
-                .observe(this, Observer {
+                .observe(this, Observer { it ->
                     if (it != null) {
                         sharedPre().setJwtToken(it.data.token)
                         sharedPre().setUserId(sharedPre().userMobile!!)
@@ -148,10 +149,20 @@ class OtpActivity : BaseActivity(), FirbaseAuthActions , LoginNavigator {
                                         }
                                         else{
                                             //sharedPre.setUserId(sharedPre.userMobile!!)
-                                            val intent =
-                                                Intent(this@OtpActivity, RegistrationActivity1::class.java)
-                                            startActivity(intent)
-                                            finish()
+                                            if(it.data.referedData.isEmpty()){
+                                                val intent =
+                                                    Intent(this@OtpActivity, RegistrationActivity1::class.java)
+                                                startActivity(intent)
+                                                finish()
+                                            }
+                                            else{
+                                                viewModel.referedData = it.data.referedData
+                                                val intent =
+                                                    Intent(this@OtpActivity, ViewReferActivity::class.java)
+                                                startActivity(intent)
+                                                finish()
+                                            }
+
                                         }
                                     }
                                 })
@@ -176,10 +187,19 @@ class OtpActivity : BaseActivity(), FirbaseAuthActions , LoginNavigator {
                             }
                             else{
                                 //sharedPre.setUserId(sharedPre.userMobile!!)
-                                val intent =
-                                    Intent(this@OtpActivity, RegistrationActivity1::class.java)
-                                startActivity(intent)
-                                finish()
+                                if(it.data.referedData.isEmpty()){
+                                    val intent =
+                                        Intent(this@OtpActivity, RegistrationActivity1::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                else{
+                                    viewModel.referedData = it.data.referedData
+                                    val intent =
+                                        Intent(this@OtpActivity, ViewReferActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
                             }
 
                         }

@@ -142,6 +142,8 @@
     <string name="zip">Enter zip code</string>
     <string name="submit">Submit</string>
     <string name="find_neighbour">Find my Neighbourhud</string>
+    <string name="continue_with_re">Continue with registration</string>
+    <string name="share">Share</string>
     <string name="registration_title">Registration</string>
 
     <string name="enter_otpp">Enter otp</string>

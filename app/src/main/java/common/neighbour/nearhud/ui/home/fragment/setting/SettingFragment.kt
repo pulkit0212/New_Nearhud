@@ -124,6 +124,10 @@ class SettingFragment : NewBaseFragment<MainViewModel, SettingFragmentBinding>(M
             requireContext().startActivity(intent)
         }
         binding.frameLayout3.setOnClickListener {
+            val intent = Intent(requireContext(), HelpActivity::class.java)
+            requireContext().startActivity(intent)
+        }
+        binding.frameShare.setOnClickListener {
             val intent = Intent(requireContext(), ContactActivity::class.java)
             requireContext().startActivity(intent)
         }
@@ -154,19 +158,21 @@ class SettingFragment : NewBaseFragment<MainViewModel, SettingFragmentBinding>(M
 
     }
     private fun Observers() {
-        viewModel!!.GetProfile(getSharedPre().userId!!).observe(requireActivity(),{
-            if(it?.data != null){
-                binding.tvName.text = it.data.data[0].firstName +" "+it.data.data[0].lastName
+        viewModel!!.GetProfile(getSharedPre().userId!!).observe(requireActivity()) {
+            if (it?.data != null) {
+                binding.tvName.text = it.data.data[0].firstName + " " + it.data.data[0].lastName
                 binding.tvGrpname.text = it.data.data[0].name
                 binding.tvEmail.text = it.data.data[0].phoneNo
-                if(!it.data.data[0].profilePicture.isNullOrEmpty()){
-                    Glide.with(requireActivity()).load(it.data.data[0].profilePicture).placeholder(R.drawable.user).into(binding.circleImageView)
+                if (!it.data.data[0].profilePicture.isNullOrEmpty()) {
+                    Glide.with(requireActivity()).load(it.data.data[0].profilePicture)
+                        .placeholder(R.drawable.user).into(binding.circleImageView)
                     // sharedPre.setEmailProfile(it.data[0].profilePicture)
-                }else{
-                    Glide.with(requireActivity()).load(R.drawable.user).placeholder(R.drawable.user).into(binding.circleImageView)
+                } else {
+                    Glide.with(requireActivity()).load(R.drawable.user).placeholder(R.drawable.user)
+                        .into(binding.circleImageView)
                 }
             }
-        })
+        }
     }
 
     private fun getDialogLogout() {
