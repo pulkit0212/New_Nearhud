@@ -9,6 +9,41 @@
         android:layout_height="match_parent"
         tools:context=".ui.contact_share.ViewReferActivity">
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/back_btn_toolbar"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_12sdp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/headerTitle"
+                style="@style/Heading6_regular"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/back_btn_toolbar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvReferData"
             android:layout_width="match_parent"
@@ -16,13 +51,13 @@
             android:layout_height="0dp"
             tools:listitem="@layout/refer_item"
             tools:itemCount="3"
-            app:layout_constraintBottom_toTopOf="@+id/cv_neighbour"
+            app:layout_constraintBottom_toTopOf="@+id/cv_continue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/layout"/>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv_neighbour"
+            android:id="@+id/cv_continue"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:elevation="20dp"

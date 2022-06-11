@@ -1,9 +1,16 @@
 package common.neighbour.nearhud.ui.contact_share
 
+import android.Manifest
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import common.neighbour.nearhud.R
 import common.neighbour.nearhud.api.BaseDataSource
 import common.neighbour.nearhud.core.NewBaseFragment
@@ -13,7 +20,11 @@ import common.neighbour.nearhud.retrofit.model.contact_share.ContactList
 import common.neighbour.nearhud.ui.contact_share.adapter.ContactAdapter
 import common.neighbour.nearhud.ui.contact_share.adapter.OnSendInterface
 import dagger.hilt.android.AndroidEntryPoint
-
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+//1519
 @AndroidEntryPoint
 class UnInvitedFragment : NewBaseFragment<ContactViewModel,
         FragmentUnInvitedBinding>(ContactViewModel::class.java),OnSendInterface
@@ -26,8 +37,25 @@ class UnInvitedFragment : NewBaseFragment<ContactViewModel,
     override fun init() {
         super.init()
         binding.lifecycleOwner = this
-        initObserver()
-        initViews()
+
+        Dexter.withContext(requireContext())
+            .withPermission(Manifest.permission.READ_CONTACTS)
+            .withListener(object : PermissionListener {
+                override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                    initObserver()
+                    initViews()
+                    viewModel.getContacts()
+                }
+
+                override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
+                    showCustomAlert("Need Contact Permission", binding.root)
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    permissionRequest: PermissionRequest, permissionToken: PermissionToken
+                ) {
+                }
+            }).check()
         //sortContact()
     }
 
@@ -47,7 +75,6 @@ class UnInvitedFragment : NewBaseFragment<ContactViewModel,
                 viewModel.list.add(item.phoneNumber)
                 viewModel.contactHashMap[item.phoneNumber] = item.name
             }
-
             sortContact()
         }
     }
@@ -93,6 +120,7 @@ class UnInvitedFragment : NewBaseFragment<ContactViewModel,
 
     //check hash keys
     fun getContact(numberUnInvited: ArrayList<String>) {
+        viewModel.contactList.clear()
         for (l in numberUnInvited){
             matchContact(l)
         }
@@ -107,9 +135,12 @@ class UnInvitedFragment : NewBaseFragment<ContactViewModel,
     }
 
     override fun send(number: String) {
+        val date = Calendar.getInstance().time
+        val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+        val strDate = dateFormat.format(date)
         viewModel.referNumber(getSharedPre().userId!!
             ,getSharedPre().userGroupId!!
-            ,number,"",getSharedPre().userGroupName!!).observe(this,
+            ,number,strDate.toString(),getSharedPre().userGroupName!!).observe(this,
             Observer {
                 when (it.status) {
                     BaseDataSource.Resource.Status.LOADING -> {

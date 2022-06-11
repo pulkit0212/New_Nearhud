@@ -1,12 +1,12 @@
 package common.neighbour.nearhud.retrofit.model.group
 
 data class GroupInfo (
-    val groupId: String,
-    val wardId: String,
-    val name: String,
-    val city: String,
-    val state: String,
-    val nearbyWard: String,
-    val latLongAddress: String,
-    val exist: Boolean
+    var groupId: String,
+    var wardId: String,
+    var name: String,
+    var city: String,
+    var state: String,
+    var nearbyWard: String,
+    var latLongAddress: String,
+    var exist: Boolean
     )

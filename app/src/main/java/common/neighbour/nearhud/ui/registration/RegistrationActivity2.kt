@@ -59,7 +59,13 @@ class RegistrationActivity2 : BaseActivity(), HomeNavigator {
 
     private fun AccessClickListener() {
 
-        binding.etNeighbourName.text = Common.savedGrpInfo.name
+        if (Common.isRefer){
+            binding.etNeighbourName.text = Common.referGrpName
+        }
+        else{
+            binding.etNeighbourName.text = Common.savedGrpInfo.name
+        }
+
 
         binding.btUploadImage.setOnClickListener {
             Dexter.withActivity(this)
@@ -169,45 +175,89 @@ class RegistrationActivity2 : BaseActivity(), HomeNavigator {
         date = Calendar.getInstance().time
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
         val strDate = dateFormat.format(date)
-        viewModel.insertUserAPI(
-            sharedPre().userId!!,
-            binding.etFirstName.text.toString(),
-            binding.etLastName.text.toString(),
-            binding.etOccupation.text.toString(),
-            generatedImageFilePath,
-            strDate.toString(),
-            sharedPre().userMobile!!,
-            Common.userLatlng,
-            Common.savedGrpInfo.groupId,
-            Common.savedGrpInfo.city,
-            Common.savedGrpInfo.state,
-            Common.address,
-            Common.zip,
-            Common.email
-        ).observe(this,{
+        if (Common.isRefer){
+            viewModel.insertUserAPI(
+                sharedPre().userId!!,
+                binding.etFirstName.text.toString(),
+                binding.etLastName.text.toString(),
+                binding.etOccupation.text.toString(),
+                generatedImageFilePath,
+                strDate.toString(),
+                sharedPre().userMobile!!,
+                Common.userLatlng,
+                Common.referGrpID,
+                "",
+                "",
+                "",
+                "",
+                ""
+            ).observe(this) {
 
-            when (it.status) {
-                BaseDataSource.Resource.Status.LOADING -> {
-                    //loader.show()
+                when (it.status) {
+                    BaseDataSource.Resource.Status.LOADING -> {
+                        //loader.show()
+                    }
+                    BaseDataSource.Resource.Status.SUCCESS -> {
+                        loader.dismiss()
+                        showCustomAlert("Signup Successfully", binding.root)
+                        startActivityWithAnimation(
+                            Intent(
+                                this,
+                                MainActivity::class.java
+                            ), Appconstants.SLIDE_IN_BOTTOM
+                        )
+                        finishAffinity()
+                    }
+                    BaseDataSource.Resource.Status.ERROR -> {
+                        loader.dismiss()
+                        showCustomAlert(it?.message, binding.root)
+                    }
                 }
-                BaseDataSource.Resource.Status.SUCCESS -> {
-                    loader.dismiss()
-                    showCustomAlert("Signup Successfully",binding.root)
-                    startActivityWithAnimation(
-                        Intent(
-                            this,
-                            MainActivity::class.java
-                        ), Appconstants.SLIDE_IN_BOTTOM
-                    )
-                    finishAffinity()
-                }
-                BaseDataSource.Resource.Status.ERROR -> {
-                    loader.dismiss()
-                    showCustomAlert(it?.message,binding.root)
-                }
+
             }
+        }
+        else{
+            viewModel.insertUserAPI(
+                sharedPre().userId!!,
+                binding.etFirstName.text.toString(),
+                binding.etLastName.text.toString(),
+                binding.etOccupation.text.toString(),
+                generatedImageFilePath,
+                strDate.toString(),
+                sharedPre().userMobile!!,
+                Common.userLatlng,
+                Common.savedGrpInfo.groupId,
+                Common.savedGrpInfo.city,
+                Common.savedGrpInfo.state,
+                Common.address,
+                Common.zip,
+                Common.email
+            ).observe(this) {
 
-        })
+                when (it.status) {
+                    BaseDataSource.Resource.Status.LOADING -> {
+                        //loader.show()
+                    }
+                    BaseDataSource.Resource.Status.SUCCESS -> {
+                        loader.dismiss()
+                        showCustomAlert("Signup Successfully", binding.root)
+                        startActivityWithAnimation(
+                            Intent(
+                                this,
+                                MainActivity::class.java
+                            ), Appconstants.SLIDE_IN_BOTTOM
+                        )
+                        finishAffinity()
+                    }
+                    BaseDataSource.Resource.Status.ERROR -> {
+                        loader.dismiss()
+                        showCustomAlert(it?.message, binding.root)
+                    }
+                }
+
+            }
+        }
+
 
     }
 

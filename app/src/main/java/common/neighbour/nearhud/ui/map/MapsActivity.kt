@@ -206,7 +206,7 @@ class MapsActivity : BaseActivity(), OnMapReadyCallback,HomeNavigator {
     }
 
     private fun callGetGroupAPI(latitude: Double, longitude: Double) {
-        viewModel.getGroupAPI(latitude, longitude).observe(this, {
+        viewModel.getGroupAPI(latitude, longitude).observe(this) {
             when (it.status) {
                 BaseDataSource.Resource.Status.LOADING -> {
                     loader.show()
@@ -223,8 +223,7 @@ class MapsActivity : BaseActivity(), OnMapReadyCallback,HomeNavigator {
                         binding.tvCity.text = ""
                         binding.tvState.text = ""
                         showCustomAlert("Group not found", binding.root)
-                    }
-                    else{
+                    } else {
                         binding.cvAddress.visibility = View.GONE
                         binding.cvGroup.visibility = View.VISIBLE
                         Common.savedGrpInfo = it.data.data
@@ -237,10 +236,10 @@ class MapsActivity : BaseActivity(), OnMapReadyCallback,HomeNavigator {
                 }
                 BaseDataSource.Resource.Status.ERROR -> {
                     loader.dismiss()
-                    Toast.makeText(this,it.data!!.message,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, it.data!!.message, Toast.LENGTH_SHORT).show()
                 }
             }
-            })
+        }
     }
 
     private fun highLightMyGroup(googleMap: GoogleMap) {

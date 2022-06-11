@@ -7,6 +7,7 @@ import common.neighbour.nearhud.retrofit.model.group.GroupInfo;
 import common.neighbour.nearhud.retrofit.model.post.CommentData;
 import common.neighbour.nearhud.retrofit.model.post.Data;
 import common.neighbour.nearhud.retrofit.model.post.PostData;
+import common.neighbour.nearhud.retrofit.model.token.ReferedData;
 import common.neighbour.nearhud.retrofit.model.welcome.Launch;
 
 public class Common {
@@ -32,4 +33,9 @@ public class Common {
     public static int mapFlag = 0;
     public static int MY_POST_POSITION = 0;
 
+    // save direct refer user data
+    public static ArrayList<ReferedData> referedData = new ArrayList<>();
+    public static String referGrpID;
+    public static Boolean isRefer = false;
+    public static String referGrpName;
 }

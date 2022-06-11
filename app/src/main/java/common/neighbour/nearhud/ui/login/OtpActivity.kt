@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import common.neighbour.nearhud.R
 import common.neighbour.nearhud.api.BaseDataSource
 import common.neighbour.nearhud.base.BaseActivity
+import common.neighbour.nearhud.common.Common
 import common.neighbour.nearhud.ui.home.ui.MainActivity
 import common.neighbour.nearhud.databinding.ActivityOtpBinding
 import common.neighbour.nearhud.newUi.ProgressView
@@ -156,9 +157,8 @@ class OtpActivity : BaseActivity(), FirbaseAuthActions , LoginNavigator {
                                                 finish()
                                             }
                                             else{
-                                                viewModel.referedData = it.data.referedData
-                                                val intent =
-                                                    Intent(this@OtpActivity, ViewReferActivity::class.java)
+                                                Common.referedData = it.data.referedData
+                                                val intent = Intent(this@OtpActivity, ViewReferActivity::class.java)
                                                 startActivity(intent)
                                                 finish()
                                             }
@@ -194,7 +194,7 @@ class OtpActivity : BaseActivity(), FirbaseAuthActions , LoginNavigator {
                                     finish()
                                 }
                                 else{
-                                    viewModel.referedData = it.data.referedData
+                                    Common.referedData = it.data.referedData
                                     val intent =
                                         Intent(this@OtpActivity, ViewReferActivity::class.java)
                                     startActivity(intent)

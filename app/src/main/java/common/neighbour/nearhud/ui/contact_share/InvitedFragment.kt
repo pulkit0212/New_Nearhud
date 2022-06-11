@@ -1,9 +1,16 @@
 package common.neighbour.nearhud.ui.contact_share
 
+import android.Manifest
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import common.neighbour.nearhud.R
 import common.neighbour.nearhud.api.BaseDataSource
 import common.neighbour.nearhud.core.NewBaseFragment
@@ -26,8 +33,25 @@ class InvitedFragment: NewBaseFragment<ContactViewModel,
     override fun init() {
         super.init()
         binding.lifecycleOwner = this
-        initObserver()
-        initViews()
+
+        Dexter.withContext(requireContext())
+            .withPermission(Manifest.permission.READ_CONTACTS)
+            .withListener(object : PermissionListener {
+                override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                    initObserver()
+                    initViews()
+                    viewModel.getContacts()
+                }
+
+                override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
+                    showCustomAlert("Need Contact Permission", binding.root)
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    permissionRequest: PermissionRequest, permissionToken: PermissionToken
+                ) {
+                }
+            }).check()
     }
 
     private fun initViews() {
@@ -62,10 +86,10 @@ class InvitedFragment: NewBaseFragment<ContactViewModel,
 
             when (it.status) {
                 BaseDataSource.Resource.Status.LOADING -> {
-                    //loader.show ()
+                    loader.show ()
                 }
                 BaseDataSource.Resource.Status.SUCCESS -> {
-                   // loader.dismiss()
+                    loader.dismiss()
                     viewModel.contactList.clear()
                     getContact(it.data!!.data[0].numberInvited)
                     binding.apply {
@@ -79,7 +103,7 @@ class InvitedFragment: NewBaseFragment<ContactViewModel,
 
                 }
                 BaseDataSource.Resource.Status.ERROR -> {
-                   // loader.dismiss()
+                    loader.dismiss()
                     Toast.makeText(requireContext(),it.data!!.message, Toast.LENGTH_SHORT).show()
                     //showCustomAlert(it.data!!.message)
                 }
@@ -89,6 +113,7 @@ class InvitedFragment: NewBaseFragment<ContactViewModel,
 
     //check hash keys
     fun getContact(numberUnInvited: ArrayList<String>) {
+        viewModel.contactList.clear()
         for (l in numberUnInvited){
             matchContact(l)
         }

@@ -23,7 +23,8 @@
                 style="@style/Heading3_semiBold_share"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Continue with --->"
+                android:text="Continue with ...."
+                android:drawablePadding="@dimen/_4sdp"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
