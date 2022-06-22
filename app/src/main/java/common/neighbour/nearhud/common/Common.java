@@ -11,6 +11,7 @@ import common.neighbour.nearhud.retrofit.model.token.ReferedData;
 import common.neighbour.nearhud.retrofit.model.welcome.Launch;
 
 public class Common {
+
     public static ArrayList<CommentData> allComments = new ArrayList<>();
     public static ArrayList<Data> post = new ArrayList<>();
     public static ArrayList<Launch> launchData = new ArrayList<>();
