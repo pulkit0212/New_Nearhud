@@ -3,22 +3,85 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="common.neighbour.nearhud.ui.contact_share.ContactViewModel" />
+        <variable
+            name="frag"
+            type="common.neighbour.nearhud.ui.contact_share.UnInvitedFragment" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.contact_share.ContactActivity">
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/sRefresh"
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSearch"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_12sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_baseline_search_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etSearchPetBreed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:background="@null"
+                android:hint="Search Name Here..."
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:afterTextChanged="@{(text)->frag.searchTextChanged(text)}"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivClear"
+                app:layout_constraintStart_toEndOf="@+id/ivSearch"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivClear"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:src="@drawable/ic_cross_cut"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/sRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_4sdp"
+            app:layout_constraintTop_toBottomOf="@+id/clSearch">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvContact"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 

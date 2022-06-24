@@ -1,9 +1,12 @@
 package common.neighbour.nearhud.ui.contact_share
 
 import android.Manifest
+import android.text.Editable
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -20,6 +23,9 @@ import common.neighbour.nearhud.retrofit.model.contact_share.ContactList
 import common.neighbour.nearhud.ui.contact_share.adapter.ContactAdapter
 import common.neighbour.nearhud.ui.contact_share.adapter.OnSendInterface
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,6 +43,8 @@ class UnInvitedFragment : NewBaseFragment<ContactViewModel,
     override fun init() {
         super.init()
         binding.lifecycleOwner = this
+        binding.frag = this
+        binding.viewModel = viewModel
 
         Dexter.withContext(requireContext())
             .withPermission(Manifest.permission.READ_CONTACTS)
@@ -157,6 +165,28 @@ class UnInvitedFragment : NewBaseFragment<ContactViewModel,
                     }
                 }
             })
+    }
+
+    fun emptySearch(text: String) {
+       // viewModel.isSearchEnabled.value = text.trim().isNotEmpty()
+        search(text.toString().trim())
+    }
+
+    fun searchTextChanged(text: Editable) {
+        binding.ivClear.visibility = View.VISIBLE
+        //viewModel.isSearchEnabled.value = text.toString().trim().isNotEmpty()
+        search(text.toString().trim())
+    }
+
+    private var searchJob: Job? = null
+    private fun search(query: String) {
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch {
+            delay(200)
+            lifecycleScope.launch {
+              
+            }
+        }
     }
 
 }
